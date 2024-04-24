@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use 'utils';
+
+@layer layout {
+  :root {
+    --space-s: #{utils.pxToRem(12px)};
+    --space-m: #{utils.pxToRem(24px)};
+  }
+}
+
+$spacing: (
+  's': #{var(--space-s)},
+  'm': #{var(--space-m)},
+);
+
+@function space($size) {
+  @return map.get($spacing, $size);
+}
+
+@mixin min-desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}

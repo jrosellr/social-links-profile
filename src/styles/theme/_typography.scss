@@ -1,0 +1,43 @@
+@use '../core/utils';
+
+@layer theme {
+  :root {
+    --font-size-xs: #{utils.pxToRem(12px)};
+    --font-size-s: #{utils.pxToRem(14px)};
+    --font-size-m: #{utils.pxToRem(16px)};
+    --font-size-l: #{utils.pxToRem(20px)};
+    --font-size-xl: #{utils.pxToRem(24px)};
+
+    --font-weight-regular: 400;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('/src/assets/fonts/Inter-VariableFont_slnt\,wght.ttf') format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+  }
+}
+
+@mixin font-stack() {
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  line-height: 150%;
+}
+
+@mixin body($weight: 'regular') {
+  font-size: utils.pxToRem(14px);
+
+  @if $weight == 'regular' {
+    font-weight: var(--font-weight-regular);
+  } @else {
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+@mixin heading() {
+  font-size: utils.pxToRem(24px);
+  font-weight: var(--font-weight-semi-bold);
+}
