@@ -1,0 +1,11 @@
+$_palette: (
+  'black': hsl(0deg, 0%, 8%),
+  'dark-grey': hsl(0deg, 0%, 12%),
+  'grey': hsl(0deg, 0%, 20%),
+  'white': hsl(0deg, 0%, 100%),
+  'neon-green': hsl(75deg, 94%, 57%)
+);
+
+@function get($color-name) {
+  @return map-get($_palette, $color-name);
+}

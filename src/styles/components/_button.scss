@@ -1,0 +1,28 @@
+@use '../base/typography';
+@use '../base/colors';
+@use '../base/utils';
+
+$_background-color: colors.get('grey');
+$_text-color: colors.get('white');
+$_focus-text-color: colors.get('black');
+$_accent-color: colors.get('neon-green');
+
+.button {
+  color: $_text-color;
+  background-color: $_background-color;
+
+  padding: utils.pxToRem(12px);
+  border-radius: 8px;
+
+  font-weight: typography.font-weight('bold');
+
+  &:hover, &:focus-visible {
+    color: $_focus-text-color;
+    background-color: $_accent-color;
+  }
+}
+
+a.button {
+  display: block;
+  text-decoration: none;
+}

@@ -1,8 +1,22 @@
-@forward 'core/reset';
-@forward 'core/base';
-@forward 'theme';
-@forward 'components/social-links-card';
+@forward 'base/reset';
+@use 'base/colors';
+@forward 'components/card';
+@forward 'components/profile-picture';
+@forward 'components/list';
+@forward 'components/button';
+
+.centered {
+  margin: 0 auto;
+}
 
 body {
-  background-color: var(--black);
+  background-color: colors.get('black');
+
+  height: 100dvh;
+  width: 100dvw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

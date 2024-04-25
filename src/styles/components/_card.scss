@@ -1,0 +1,63 @@
+@use '../base/colors';
+@use '../base/typography';
+@use '../base/utils';
+
+$_background-color: colors.get('dark-grey');
+$_text-color: colors.get('white');
+$_accent-color: colors.get('neon-green');
+
+.card {
+  background-color: $_background-color;
+  color: $_text-color;
+
+  margin: 0 auto;
+  padding: utils.pxToRem(24px);
+  width: utils.pxToRem(327px);
+
+  border-radius: 12px;
+
+  @media (min-width: 1024px) {
+    width: utils.pxToRem(384px);
+    padding: utils.pxToRem(40px);
+  }
+}
+
+  .card__header {
+    margin-top: 0;
+    margin-bottom: utils.pxToRem(24px);
+
+    text-align: center;
+  }
+
+    .card__picture-wrapper {
+      margin-top: 0;
+      margin-bottom: utils.pxToRem(24px);
+    }
+
+    .card__title {
+      @include typography.font-stack();
+      font-size: typography.font-size('heading');
+      font-weight: typography.font-weight('semi-bold');
+
+      margin-bottom: utils.pxToRem(4px);
+    }
+
+    .card__subtitle {
+      color: $_accent-color;
+      @include typography.font-stack();
+      font-size: typography.font-size();
+      font-weight: typography.font-weight('bold');
+
+      margin-top: 0;
+    }
+
+  .card__body {
+    text-align: center;
+    @include typography.font-stack();
+    font-size: typography.font-size();
+    font-weight: typography.font-weight();
+  }
+
+    .profile-bio {
+      margin-bottom: utils.pxToRem(24px);
+    }

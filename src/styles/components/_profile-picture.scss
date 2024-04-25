@@ -1,0 +1,8 @@
+@use '../base/utils';
+
+.profile-picture {
+  display: block;
+  border-radius: 50%;
+  height: utils.pxToRem(88px);
+  width: utils.pxToRem(88px);
+}

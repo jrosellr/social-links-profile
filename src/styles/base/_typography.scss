@@ -1,4 +1,5 @@
-@use '../core/utils';
+@use '../base/utils';
+@use 'sass:map';
 
 @layer theme {
   :root {
@@ -27,17 +28,22 @@
   line-height: 150%;
 }
 
-@mixin body($weight: 'regular') {
-  font-size: utils.pxToRem(14px);
+$_font-weights: (
+  'regular': 400,
+  'semi-bold': 600,
+  'bold': 700
+);
 
-  @if $weight == 'regular' {
-    font-weight: var(--font-weight-regular);
-  } @else {
-    font-weight: var(--font-weight-bold);
-  }
+$_font-sizes: (
+  'body': utils.pxToRem(14px),
+  'heading': utils.pxToRem(24px),
+);
+
+@function font-size($size: 'body') {
+  @return map.get($_font-sizes, $size);
 }
 
-@mixin heading() {
-  font-size: utils.pxToRem(24px);
-  font-weight: var(--font-weight-semi-bold);
+@function font-weight($weight: 'regular') {
+  @return map.get($_font-weights, $weight);
 }
+
